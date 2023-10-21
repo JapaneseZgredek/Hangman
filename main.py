@@ -1,3 +1,6 @@
+import random
+
+LIVES = 8
 
 
 def read_from_file() -> list:
@@ -11,6 +14,11 @@ def read_from_file() -> list:
 
 def main():
     list_of_words = read_from_file()
+    word_to_guess = list_of_words[random.randint(0, len(list_of_words))]
+    correct_guesses = 0
+    while LIVES > 0 and correct_guesses != len(word_to_guess):
+        print('WORD: ' + ('-' * len(word_to_guess)))
+        user_guess = input('Guess the letter or the whole word: ')
 
 
 if __name__ == '__main__':
